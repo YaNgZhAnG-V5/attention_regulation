@@ -1,7 +1,9 @@
-# attention_regulation
-
 ##TODO
 We are working on refactoring our messy code. Code will be released soon :)
+
+# Attention Regulation
+
+This repository contains the PyTorch inference code for the paper "Enhancing Semantic Fidelity in Text-to-Image Synthesis: Attention Regulation in Diffusion Models". Paper link: [arXiv](https://arxiv.org/abs/2403.06381)
 
 
 ## Environment Setup
@@ -50,3 +52,16 @@ options:
                         Scheduler to use
 ```
 
+
+## Acknowledgements
+If you find our work useful for your work, please consider citing our paper:
+```
+@misc{zhang2024enhancing,
+      title={Enhancing Semantic Fidelity in Text-to-Image Synthesis: Attention Regulation in Diffusion Models}, 
+      author={Yang Zhang and Teoh Tze Tzun and Lim Wei Hern and Tiviatis Sim and Kenji Kawaguchi},
+      year={2024},
+      eprint={2403.06381},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
