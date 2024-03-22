@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta property="og:title" content="Attend-and-Excite: Attention-Based Semantic Guidance for Text-to-Image Diffusion Models"/>
+  <meta property="og:url" content="https://attendandexcite.github.io/attend-and-excite/"/>
+  <meta property="og:image" content="static/images/og_tag_header_image.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <title>Attend and Excite</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+  <link rel="icon" href="static/figures/elephant.jpeg">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="publication-header">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- <div class="columns is-centered"> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Enhancing Semantic Fidelity in Text-to-Image Synthesis: Attention Regulation
+            in Diffusion Models</h1>
+        </div>
+    </div>
+  </div>   
+</section>
+
+<section class="publication-author-block">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+		      <div class="is-size-3 publication-authors">
+          </div>
+          
+          <div class="is-size-3 publication-authors">
+            <!-- span class="author-block"> </span> 
+            <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="" target="_blank">Yang Zhang</a><sup>*</sup>,</span>
+            <span class="author-block"><a href="" target="_blank">Teoh Tze Tzun</a><sup>*</sup>,</span>
+            <span class="author-block"><a href="" target="_blank">Lim Wei Hern</a><sup>*</sup>,</span>
+            <span class="author-block"><a href="" target="_blank">Tiviatis Sim</a><sup>*</sup>,</span>            
+            <span class="author-block"><a href="" target="_blank">Kenji Kawaguchi</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">National University of Singapore</span> 
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.06381" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- Colab Link. -->
+              <span class="link-block">
+                <a href="https://github.com/YaNgZhAnG-V5/attention_regulation" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              </span>
+            
+            <span class="link-block">
+              <a href=""  target="_blank"
+                 class="external-link button is-normal is-rounded">
+                <span class="icon">
+                    <i class="fas fa-laptop"></i>
+                </span>
+                <span>Demo</span>
+              </a>
+             </span>
+           
+            </div>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block" font-size="6px"><sup>*</sup> Denotes equal contribution</span> 
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <!-- <div class="hero-body"> -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+      <div class="container">
+      <div class="item">
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/teaser.png" alt="Attend_and_Excite"/>
+      
+      <h2 class="subtitle">
+	Given a pre-trained text-to-image diffusion model, our method guides the generative
+	model to modify the cross-attention values during the image synthesis process to attend 
+  to all target objects in the text. Stable Diffusion alone (top row) struggles to generate multiple objects (e.g. a dog, a bed and a bowl). 
+  However, by incorporating Attention Regulation (bottom row) to strengthen the target tokens (bolded and underlined), we achieve images that are more semantically faithful with respect to the input text prompts. 
+      </h2>
+	  </div>
+    </div>
+  </div>
+ <!--  </div> -->
+  </div>
+  </div>
+ <!--  </div> -->
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- div class="item">
+          <p style="margin-bottom: 30px">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/figures/video.mp4"
+          type="video/mp4">
+        </video>
+        </p>
+        </div -->
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advancements in diffusion models have notably improved the perceptual quality of generated images in text-to-image synthesis tasks. 
+            However, diffusion models often struggle to produce images that accurately reflect the intended semantics of the associated text prompts. 
+            We examine cross-attention layers in diffusion models and observe a propensity for these layers to disproportionately focus on certain tokens during the generation process, 
+            thereby undermining semantic fidelity. 
+            To address the issue of dominant attention, we introduce <i>Attention Regulation</i>, 
+            a computation-efficient on-the-fly optimization approach at inference time to align attention maps with the input text prompt. 
+            Notably, our method requires no additional training or fine-tuning and serves as a plug-in module on a model. 
+            Hence, the generation capacity of the original model is fully preserved. 
+            We compare our approach with alternative approaches across various datasets, evaluation metrics, and diffusion models. 
+            Experiment results show that our method consistently outperforms other baselines, 
+            yielding images that more faithfully reflect the desired concepts with reduced computation overhead.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered">Examples of Text-to-Image Generation with Attention Regulation</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/bench_car.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/bench_chair.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/bike_bag.png" alt="cars peace" width="800px"/>
+          </div>
+          <div class="column is-centered has-text-centered">
+            <img src="static/figures/bird_bicycle.png" alt="cars peace"  width="800px"/>
+        </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/book_bed.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/cake_plane.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/car_plane.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/dog_bear.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/dog_frisbee.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/donut_cup.png" alt="cars peace" width="800px"/>
+          </div>
+    </div>
+  </div>
+
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">How does it work?</h2>
+        <div class="content has-text-justified">
+        </div>
+		<div class="column is-centered has-text-centered">
+        <img src="static/figures/xattn_stats.png" alt="cars peace" width="700px"/>
+		</div>
+		<p class="content has-text-justified">
+            We observe that the issue of catastrophic neglect can be explained by the cross-attention values of target tokens.
+            As seen from the figure above, in the first row, where the glasses are missing, the average cross-attention value of the glasses token is significantly lower than that of the elephant token.
+            Conversely, in the second row, where the glasses are present, the average cross-attention value of the glasses token is significantly higher, on par with the elephant token.
+            This leads us to hypothesize that the cross-attention values of the target tokens are crucial in determining the presence of the target objects in the generated images.
+          </p>
+        <div class="column is-centered has-text-centered">
+        <img src="static/figures/process.png" alt="cars peace" width="700px"/>
+      </div>
+        <div class="content has-text-justified">
+          <p>
+			Text conditioning in Stable Diffusion is performed via the cross-attention mechanism. We can consider the cross-attention values of each target
+      token as a 2D spatial map. Intuitively, our Attention Regulation approach encourages the attention maps of each target token to be similar in the sense 
+      that they should all have some region of high attention and the proportion of such high attention regions should be similar across all target tokens.
+			<br>
+            Given a prompt (e.g., "A bedroom with a book on the bed"), we extract the target tokens (book, bed).
+            Then, we apply a set of different 2D smoothed Gaussian kernals to the cross-attention values, guided by an optimisation process that is aligned 
+            with the goal of having the attention maps of the target tokens to be similar. 
+            The details of the Gaussian kernels used and the optimisation process can be found in the paper.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+      <h2 class="title has-text-centered">Comparisons with Other Approaches</h2>
+      <div class="column is-centered has-text-centered">
+        <img src="static/figures/quant_comp.png" alt="cars peace" width="700px"/>
+      </div>
+      
+      <h3 class="subtitle is-centered has-text-centered">
+        We provide a quantitative comparisons with 5 other approaches on the two different datasets, 
+        namely the COCO dataset and the Attend-And-Excite dataset.
+      </h3>
+      
+      
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/visual_comp_1.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/visual_comp_2.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/visual_comp_3.png" alt="cars peace" width="800px"/>
+          </div>
+        <div class="column is-centered has-text-centered">
+            <img src="static/figures/visual_comp_4.png" alt="cars peace"  width="800px"/>
+          </div>
+      </div>
+        <h3 class="subtitle is-centered has-text-centered">
+        We provide visual comparisons with 5 other approaches on the COCO dataset.
+        </h3>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content">
+        <p>
+          This website is licensed under a <a rel="license"
+          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+      <p>
+        Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+        href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+</footer>
+
+
+  <script type="text/javascript">
+    var sc_project=12351448; 
+    var sc_invisible=1; 
+    var sc_security="c676de4f"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12351448/0/c676de4f/1/"
+    alt="Web Analytics"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
