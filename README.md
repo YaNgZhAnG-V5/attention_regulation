@@ -2,6 +2,10 @@
 
 This repository contains the PyTorch inference code for the paper "Enhancing Semantic Fidelity in Text-to-Image Synthesis: Attention Regulation in Diffusion Models". Paper link: [arXiv](https://arxiv.org/abs/2403.06381)
 
+## Introduction
+<img src="https://github.com/YaNgZhAnG-V5/attention_regulation/blob/main/demo.png" width="900">
+
+Given a pre-trained text-to-image diffusion model, our method, Attention Regulation, guides the generative model to modify the cross-attention values during the image synthesis process to attend to all target objects in the text. Our method works at inference time and requires no finetuning or retraining on a model. More details are in our [homepage](https://yangzhang-v5.github.io/attention_regulation/).
 
 ## Environment Setup
 Clone this repository
