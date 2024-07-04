@@ -1,4 +1,4 @@
-# Attention Regulation
+# [ECCV2024] Attention Regulation
 
 This repository contains the PyTorch inference code for the paper "Enhancing Semantic Fidelity in Text-to-Image Synthesis: Attention Regulation in Diffusion Models". Paper link: [arXiv](https://arxiv.org/abs/2403.06381)
 
